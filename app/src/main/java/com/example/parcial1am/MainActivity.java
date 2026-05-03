@@ -1,6 +1,8 @@
 package com.example.parcial1am;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,18 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        // Botón de aumentar cantidad en pimiento
+        Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
+        TextView redPepperQuantity = findViewById(R.id.redPepperQuantity);
+
+        redPepperPlusButton.setOnClickListener(v -> {
+            String currentQuantityText = redPepperQuantity.getText().toString();
+            int currentQuantity = Integer.parseInt(currentQuantityText);
+            int newQuantity = currentQuantity + 1;
+
+            redPepperQuantity.setText(String.valueOf(newQuantity));
         });
     }
 }
