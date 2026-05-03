@@ -23,16 +23,28 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Botón de aumentar cantidad en pimiento
-        Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
         TextView redPepperQuantity = findViewById(R.id.redPepperQuantity);
 
+        // Botón de aumentar cantidad en pimiento
+        Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
         redPepperPlusButton.setOnClickListener(v -> {
             String currentQuantityText = redPepperQuantity.getText().toString();
             int currentQuantity = Integer.parseInt(currentQuantityText);
             int newQuantity = currentQuantity + 1;
 
             redPepperQuantity.setText(String.valueOf(newQuantity));
+        });
+
+        // Botón de disminuir cantidad en pimiento
+        Button redPepperMinusButton = findViewById(R.id.redPepperMinusButton);
+        redPepperMinusButton.setOnClickListener(v -> {
+            String currentQuantityText = redPepperQuantity.getText().toString();
+            int currentQuantity = Integer.parseInt(currentQuantityText);
+
+            if (currentQuantity > 1) {
+                int newQuantity = currentQuantity - 1;
+                redPepperQuantity.setText(String.valueOf(newQuantity));
+            }
         });
     }
 }
