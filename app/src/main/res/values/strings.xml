@@ -18,6 +18,9 @@
     <string name="unit_bananas">2 kg</string>
     <string name="unit_ginger">250 g</string>
 
+    <!-- Precios -->
+    <string name="price_red_pepper">$774.99</string>
+
     <!-- Navegación inferior -->
     <string name="nav_shop">Tienda</string>
     <string name="nav_explore">Explorar</string>
