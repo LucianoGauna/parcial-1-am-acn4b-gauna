@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Parcial1AM</string>
+
+    <!-- Pantalla carrito -->
+    <string name="cart_title">Mi carrito</string>
+    <string name="checkout_button">Ir al pago</string>
+    <string name="cart_empty_message">Tu carrito está vacío</string>
+
+    <!-- Productos -->
+    <string name="product_red_pepper">Pimiento rojo</string>
+    <string name="product_eggs">Huevos</string>
+    <string name="product_bananas">Bananas</string>
+    <string name="product_ginger">Jengibre</string>
+
+    <!-- Cantidades / presentaciones -->
+    <string name="unit_red_pepper">1 kg</string>
+    <string name="unit_eggs">4 u.</string>
+    <string name="unit_bananas">2 kg</string>
+    <string name="unit_ginger">250 g</string>
+
+    <!-- Navegación inferior -->
+    <string name="nav_shop">Tienda</string>
+    <string name="nav_explore">Explorar</string>
+    <string name="nav_cart">Carrito</string>
+    <string name="nav_favorites">Favoritos</string>
+    <string name="nav_account">Cuenta</string>
+
+    <!-- Accesibilidad / acciones -->
+    <string name="action_increase_quantity">Aumentar cantidad</string>
+    <string name="action_decrease_quantity">Disminuir cantidad</string>
+    <string name="action_remove_product">Eliminar producto</string>
+    <string name="action_go_to_checkout">Ir al pago</string>
+
+    <!-- Formatos -->
+    <string name="price_format">$%1$.2f</string>
 </resources>
