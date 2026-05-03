@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores principales -->
     <color name="primary_green">#53B175</color>
     <color name="text_primary">#181725</color>
     <color name="text_secondary">#7C7C7C</color>
+
+    <!-- Bordes y separadores -->
+    <color name="quantity_button_border">#F0F0F0</color>
+    <color name="divider">#E2E2E2</color>
+
+    <!-- Acciones -->
+    <color name="remove_icon">#B3B3B3</color>
+
+    <!-- Base -->
+    <color name="white">#FFFFFF</color>
     <color name="background">#FFFFFF</color>
-    <color name="border_light">#E2E2E2</color>
 </resources>
