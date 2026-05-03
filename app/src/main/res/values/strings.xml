@@ -21,6 +21,7 @@
     <!-- Precios -->
     <string name="price_red_pepper">$774.99</string>
     <string name="price_eggs">$850.99</string>
+    <string name="price_bananas">$690.00</string>
 
     <!-- Navegación inferior -->
     <string name="nav_shop">Tienda</string>
