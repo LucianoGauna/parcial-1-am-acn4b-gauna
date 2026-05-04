@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView redPepperQuantity = findViewById(R.id.redPepperQuantity);
+        TextView redPepperPrice = findViewById(R.id.redPepperPrice);
+        double redPepperUnitPrice = 749.99;
 
         // Botón de aumentar cantidad en pimiento
         Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
             int newQuantity = currentQuantity + 1;
 
             redPepperQuantity.setText(String.valueOf(newQuantity));
+
+            double newPrice = redPepperUnitPrice * newQuantity;
+            redPepperPrice.setText(String.format("$%.2f", newPrice));
         });
 
         // Botón de disminuir cantidad en pimiento
@@ -45,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
             if (currentQuantity > 1) {
                 int newQuantity = currentQuantity - 1;
+
                 redPepperQuantity.setText(String.valueOf(newQuantity));
+
+                double newPrice = redPepperUnitPrice * newQuantity;
+                redPepperPrice.setText(String.format("$%.2f", newPrice));
             }
         });
 
