@@ -4,7 +4,7 @@
     <!-- Pantalla carrito -->
     <string name="cart_title">Mi carrito</string>
     <string name="checkout_button">Ir al pago</string>
-    <string name="cart_empty_message">Tu carrito está vacío</string>
+    <string name="cart_empty_message">Tu carrito está vacío.\nAgregá productos para continuar con la compra.</string>
 
     <!-- Productos -->
     <string name="product_red_pepper">Pimiento rojo</string>
