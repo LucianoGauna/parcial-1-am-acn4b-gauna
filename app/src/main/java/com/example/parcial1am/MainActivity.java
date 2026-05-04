@@ -26,8 +26,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView redPepperQuantity = findViewById(R.id.redPepperQuantity);
+        TextView eggsQuantity = findViewById(R.id.eggsQuantity);
+        TextView bananasQuantity = findViewById(R.id.bananasQuantity);
+        TextView gingerQuantity = findViewById(R.id.gingerQuantity);
+
         TextView redPepperPrice = findViewById(R.id.redPepperPrice);
+
         double redPepperUnitPrice = 749.99;
+        double eggsUnitPrice = 850.99;
+        double bananasUnitPrice = 690.00;
+        double gingerUnitPrice = 300.99;
+
 
         // Botón de aumentar cantidad en pimiento
         Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
@@ -78,7 +87,23 @@ public class MainActivity extends AppCompatActivity {
         checkoutSummary.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
         checkoutButton.setOnClickListener(v -> {
-            checkoutSummary.setText("Resumen del pedido\nProductos listos para avanzar al pago");
+            int redPepperCurrentQuantity = Integer.parseInt(redPepperQuantity.getText().toString());
+            int eggsCurrentQuantity = Integer.parseInt(eggsQuantity.getText().toString());
+            int bananasCurrentQuantity = Integer.parseInt(bananasQuantity.getText().toString());
+            int gingerCurrentQuantity = Integer.parseInt(gingerQuantity.getText().toString());
+
+            double redPepperTotal = redPepperUnitPrice * redPepperCurrentQuantity;
+            double eggsTotal = eggsUnitPrice * eggsCurrentQuantity;
+            double bananasTotal = bananasUnitPrice * bananasCurrentQuantity;
+            double gingerTotal = gingerUnitPrice * gingerCurrentQuantity;
+
+            if (redPepperItem.getVisibility() == View.GONE) {
+                redPepperTotal = 0;
+            }
+
+            double cartTotal = redPepperTotal + eggsTotal + bananasTotal + gingerTotal;
+
+            checkoutSummary.setText("Resumen del pedido\nTotal estimado: $" + String.format("%.2f", cartTotal));
 
             if (checkoutSummary.getParent() == null) {
                 cartItemsContainer.addView(checkoutSummary);
