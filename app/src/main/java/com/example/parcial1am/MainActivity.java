@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView redPepperPrice = findViewById(R.id.redPepperPrice);
         TextView eggsPrice = findViewById(R.id.eggsPrice);
+        TextView bananasPrice = findViewById(R.id.bananasPrice);
 
         double redPepperUnitPrice = 749.99;
         double eggsUnitPrice = 850.99;
@@ -117,6 +118,45 @@ public class MainActivity extends AppCompatActivity {
             eggsDivider.setVisibility(View.GONE);
         });
 
+        // Botón de aumentar cantidad en bananas
+        Button bananasPlusButton = findViewById(R.id.bananasPlusButton);
+        bananasPlusButton.setOnClickListener(v -> {
+            String currentQuantityText = bananasQuantity.getText().toString();
+            int currentQuantity = Integer.parseInt(currentQuantityText);
+            int newQuantity = currentQuantity + 1;
+
+            bananasQuantity.setText(String.valueOf(newQuantity));
+
+            double newPrice = bananasUnitPrice * newQuantity;
+            bananasPrice.setText(String.format("$%.2f", newPrice));
+        });
+
+        // Botón de disminuir cantidad en bananas
+        Button bananasMinusButton = findViewById(R.id.bananasMinusButton);
+        bananasMinusButton.setOnClickListener(v -> {
+            String currentQuantityText = bananasQuantity.getText().toString();
+            int currentQuantity = Integer.parseInt(currentQuantityText);
+
+            if (currentQuantity > 1) {
+                int newQuantity = currentQuantity - 1;
+
+                bananasQuantity.setText(String.valueOf(newQuantity));
+
+                double newPrice = bananasUnitPrice * newQuantity;
+                bananasPrice.setText(String.format("$%.2f", newPrice));
+            }
+        });
+
+        // Botón de eliminar bananas del carrito
+        Button bananasRemoveButton = findViewById(R.id.bananasRemoveButton);
+        View bananasItem = findViewById(R.id.bananasItem);
+        View bananasDivider = findViewById(R.id.bananasDivider);
+
+        bananasRemoveButton.setOnClickListener(v -> {
+            bananasItem.setVisibility(View.GONE);
+            bananasDivider.setVisibility(View.GONE);
+        });
+
         // Botón de ir al pago y contenedor del carrito
         Button checkoutButton = findViewById(R.id.checkoutButton);
         LinearLayout cartItemsContainer = findViewById(R.id.cartItemsContainer);
@@ -143,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
 
             if (eggsItem.getVisibility() == View.GONE) {
                 eggsTotal = 0;
+            }
+
+            if (bananasItem.getVisibility() == View.GONE) {
+                bananasTotal = 0;
             }
 
             double cartTotal = redPepperTotal + eggsTotal + bananasTotal + gingerTotal;
