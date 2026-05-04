@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         View gingerItem = findViewById(R.id.gingerItem);
         View gingerDivider = findViewById(R.id.gingerDivider);
 
+        TextView checkoutSummary = new TextView(this);
+
         // Botón de aumentar cantidad en pimiento
         Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
         redPepperPlusButton.setOnClickListener(v -> {
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
             double newPrice = redPepperUnitPrice * newQuantity;
             redPepperPrice.setText(String.format("$%.2f", newPrice));
+
+            hideCheckoutSummary(checkoutSummary);
         });
 
         // Botón de disminuir cantidad en pimiento
@@ -86,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
                 double newPrice = redPepperUnitPrice * newQuantity;
                 redPepperPrice.setText(String.format("$%.2f", newPrice));
+
+                hideCheckoutSummary(checkoutSummary);
             }
         });
 
@@ -93,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         redPepperRemoveButton.setOnClickListener(v -> {
             redPepperItem.setVisibility(View.GONE);
             redPepperDivider.setVisibility(View.GONE);
+            hideCheckoutSummary(checkoutSummary);
             updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
@@ -107,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
             double newPrice = eggsUnitPrice * newQuantity;
             eggsPrice.setText(String.format("$%.2f", newPrice));
+
+            hideCheckoutSummary(checkoutSummary);
         });
 
         // Botón de disminuir cantidad en huevos
@@ -122,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
 
                 double newPrice = eggsUnitPrice * newQuantity;
                 eggsPrice.setText(String.format("$%.2f", newPrice));
+
+                hideCheckoutSummary(checkoutSummary);
             }
         });
 
@@ -129,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         eggsRemoveButton.setOnClickListener(v -> {
             eggsItem.setVisibility(View.GONE);
             eggsDivider.setVisibility(View.GONE);
-
+            hideCheckoutSummary(checkoutSummary);
             updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
@@ -144,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
 
             double newPrice = bananasUnitPrice * newQuantity;
             bananasPrice.setText(String.format("$%.2f", newPrice));
+
+            hideCheckoutSummary(checkoutSummary);
         });
 
         // Botón de disminuir cantidad en bananas
@@ -159,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
 
                 double newPrice = bananasUnitPrice * newQuantity;
                 bananasPrice.setText(String.format("$%.2f", newPrice));
+
+                hideCheckoutSummary(checkoutSummary);
             }
         });
 
@@ -166,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         bananasRemoveButton.setOnClickListener(v -> {
             bananasItem.setVisibility(View.GONE);
             bananasDivider.setVisibility(View.GONE);
-
+            hideCheckoutSummary(checkoutSummary);
             updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
@@ -181,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
 
             double newPrice = gingerUnitPrice * newQuantity;
             gingerPrice.setText(String.format("$%.2f", newPrice));
+
+            hideCheckoutSummary(checkoutSummary);
         });
 
         // Botón de disminuir cantidad en jengibre
@@ -196,6 +213,8 @@ public class MainActivity extends AppCompatActivity {
 
                 double newPrice = gingerUnitPrice * newQuantity;
                 gingerPrice.setText(String.format("$%.2f", newPrice));
+
+                hideCheckoutSummary(checkoutSummary);
             }
         });
 
@@ -203,12 +222,11 @@ public class MainActivity extends AppCompatActivity {
         gingerRemoveButton.setOnClickListener(v -> {
             gingerItem.setVisibility(View.GONE);
             gingerDivider.setVisibility(View.GONE);
-
+            hideCheckoutSummary(checkoutSummary);
             updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
         // Botón de ir al pago y contenedor del carrito
-        TextView checkoutSummary = new TextView(this);
         checkoutSummary.setTextColor(getColor(R.color.text_primary));
         checkoutSummary.setTextSize(18);
         checkoutSummary.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -243,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
             double cartTotal = redPepperTotal + eggsTotal + bananasTotal + gingerTotal;
 
             checkoutSummary.setText("Resumen del pedido\nTotal estimado: $" + String.format("%.2f", cartTotal));
+            checkoutSummary.setVisibility(View.VISIBLE);
 
             if (checkoutSummary.getParent() == null) {
                 cartItemsContainer.addView(checkoutSummary);
@@ -272,6 +291,12 @@ public class MainActivity extends AppCompatActivity {
             emptyCartMessage.setVisibility(View.GONE);
             checkoutButton.setEnabled(true);
             checkoutButton.setAlpha(1f);
+        }
+    }
+
+    private void hideCheckoutSummary(TextView checkoutSummary) {
+        if (checkoutSummary.getParent() != null) {
+            checkoutSummary.setVisibility(View.GONE);
         }
     }
 }
