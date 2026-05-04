@@ -1,6 +1,7 @@
 package com.example.parcial1am;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -45,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
                 int newQuantity = currentQuantity - 1;
                 redPepperQuantity.setText(String.valueOf(newQuantity));
             }
+        });
+
+        // Botón de eliminar pimiento del carrito
+        Button redPepperRemoveButton = findViewById(R.id.redPepperRemoveButton);
+        View redPepperItem = findViewById(R.id.redPepperItem);
+        View redPepperDivider = findViewById(R.id.redPepperDivider);
+
+        redPepperRemoveButton.setOnClickListener(v -> {
+            redPepperItem.setVisibility(View.GONE);
+            redPepperDivider.setVisibility(View.GONE);
         });
     }
 }
