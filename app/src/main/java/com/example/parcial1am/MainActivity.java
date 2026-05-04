@@ -40,6 +40,25 @@ public class MainActivity extends AppCompatActivity {
         double bananasUnitPrice = 690.00;
         double gingerUnitPrice = 300.99;
 
+        Button checkoutButton = findViewById(R.id.checkoutButton);
+        LinearLayout cartItemsContainer = findViewById(R.id.cartItemsContainer);
+        TextView emptyCartMessage = findViewById(R.id.emptyCartMessage);
+
+        Button redPepperRemoveButton = findViewById(R.id.redPepperRemoveButton);
+        View redPepperItem = findViewById(R.id.redPepperItem);
+        View redPepperDivider = findViewById(R.id.redPepperDivider);
+
+        Button eggsRemoveButton = findViewById(R.id.eggsRemoveButton);
+        View eggsItem = findViewById(R.id.eggsItem);
+        View eggsDivider = findViewById(R.id.eggsDivider);
+
+        Button bananasRemoveButton = findViewById(R.id.bananasRemoveButton);
+        View bananasItem = findViewById(R.id.bananasItem);
+        View bananasDivider = findViewById(R.id.bananasDivider);
+
+        Button gingerRemoveButton = findViewById(R.id.gingerRemoveButton);
+        View gingerItem = findViewById(R.id.gingerItem);
+        View gingerDivider = findViewById(R.id.gingerDivider);
 
         // Botón de aumentar cantidad en pimiento
         Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
@@ -71,13 +90,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Botón de eliminar pimiento del carrito
-        Button redPepperRemoveButton = findViewById(R.id.redPepperRemoveButton);
-        View redPepperItem = findViewById(R.id.redPepperItem);
-        View redPepperDivider = findViewById(R.id.redPepperDivider);
-
         redPepperRemoveButton.setOnClickListener(v -> {
             redPepperItem.setVisibility(View.GONE);
             redPepperDivider.setVisibility(View.GONE);
+            updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
         // Botón de aumentar cantidad en huevos
@@ -110,13 +126,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Botón de eliminar huevos del carrito
-        Button eggsRemoveButton = findViewById(R.id.eggsRemoveButton);
-        View eggsItem = findViewById(R.id.eggsItem);
-        View eggsDivider = findViewById(R.id.eggsDivider);
-
         eggsRemoveButton.setOnClickListener(v -> {
             eggsItem.setVisibility(View.GONE);
             eggsDivider.setVisibility(View.GONE);
+
+            updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
         // Botón de aumentar cantidad en bananas
@@ -149,13 +163,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Botón de eliminar bananas del carrito
-        Button bananasRemoveButton = findViewById(R.id.bananasRemoveButton);
-        View bananasItem = findViewById(R.id.bananasItem);
-        View bananasDivider = findViewById(R.id.bananasDivider);
-
         bananasRemoveButton.setOnClickListener(v -> {
             bananasItem.setVisibility(View.GONE);
             bananasDivider.setVisibility(View.GONE);
+
+            updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
         // Botón de aumentar cantidad en jengibre
@@ -188,19 +200,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Botón de eliminar jengibre del carrito
-        Button gingerRemoveButton = findViewById(R.id.gingerRemoveButton);
-        View gingerItem = findViewById(R.id.gingerItem);
-        View gingerDivider = findViewById(R.id.gingerDivider);
-
         gingerRemoveButton.setOnClickListener(v -> {
             gingerItem.setVisibility(View.GONE);
             gingerDivider.setVisibility(View.GONE);
+
+            updateCartState(emptyCartMessage, checkoutButton, redPepperItem, eggsItem, bananasItem, gingerItem);
         });
 
         // Botón de ir al pago y contenedor del carrito
-        Button checkoutButton = findViewById(R.id.checkoutButton);
-        LinearLayout cartItemsContainer = findViewById(R.id.cartItemsContainer);
-
         TextView checkoutSummary = new TextView(this);
         checkoutSummary.setTextColor(getColor(R.color.text_primary));
         checkoutSummary.setTextSize(18);
@@ -241,5 +248,30 @@ public class MainActivity extends AppCompatActivity {
                 cartItemsContainer.addView(checkoutSummary);
             }
         });
+    }
+
+    private void updateCartState(
+            TextView emptyCartMessage,
+            Button checkoutButton,
+            View redPepperItem,
+            View eggsItem,
+            View bananasItem,
+            View gingerItem
+    ) {
+        boolean isCartEmpty =
+                redPepperItem.getVisibility() == View.GONE &&
+                        eggsItem.getVisibility() == View.GONE &&
+                        bananasItem.getVisibility() == View.GONE &&
+                        gingerItem.getVisibility() == View.GONE;
+
+        if (isCartEmpty) {
+            emptyCartMessage.setVisibility(View.VISIBLE);
+            checkoutButton.setEnabled(false);
+            checkoutButton.setAlpha(0.5f);
+        } else {
+            emptyCartMessage.setVisibility(View.GONE);
+            checkoutButton.setEnabled(true);
+            checkoutButton.setAlpha(1f);
+        }
     }
 }

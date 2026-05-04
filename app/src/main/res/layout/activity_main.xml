@@ -620,6 +620,17 @@
                 android:layout_height="1dp"
                 android:background="@color/divider" />
 
+            <TextView
+                android:id="@+id/emptyCartMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="@string/cart_empty_message"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
         </LinearLayout>
 
     </ScrollView>
