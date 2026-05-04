@@ -3,6 +3,7 @@ package com.example.parcial1am;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -56,6 +57,23 @@ public class MainActivity extends AppCompatActivity {
         redPepperRemoveButton.setOnClickListener(v -> {
             redPepperItem.setVisibility(View.GONE);
             redPepperDivider.setVisibility(View.GONE);
+        });
+
+        // Botón de ir al pago y contenedor del carrito
+        Button checkoutButton = findViewById(R.id.checkoutButton);
+        LinearLayout cartItemsContainer = findViewById(R.id.cartItemsContainer);
+
+        TextView checkoutSummary = new TextView(this);
+        checkoutSummary.setTextColor(getColor(R.color.text_primary));
+        checkoutSummary.setTextSize(18);
+        checkoutSummary.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        checkoutButton.setOnClickListener(v -> {
+            checkoutSummary.setText("Resumen del pedido\nProductos listos para avanzar al pago");
+
+            if (checkoutSummary.getParent() == null) {
+                cartItemsContainer.addView(checkoutSummary);
+            }
         });
     }
 }
