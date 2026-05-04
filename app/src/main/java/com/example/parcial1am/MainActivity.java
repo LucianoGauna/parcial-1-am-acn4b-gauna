@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         TextView redPepperPrice = findViewById(R.id.redPepperPrice);
         TextView eggsPrice = findViewById(R.id.eggsPrice);
         TextView bananasPrice = findViewById(R.id.bananasPrice);
+        TextView gingerPrice = findViewById(R.id.gingerPrice);
 
         double redPepperUnitPrice = 749.99;
         double eggsUnitPrice = 850.99;
@@ -157,6 +158,45 @@ public class MainActivity extends AppCompatActivity {
             bananasDivider.setVisibility(View.GONE);
         });
 
+        // Botón de aumentar cantidad en jengibre
+        Button gingerPlusButton = findViewById(R.id.gingerPlusButton);
+        gingerPlusButton.setOnClickListener(v -> {
+            String currentQuantityText = gingerQuantity.getText().toString();
+            int currentQuantity = Integer.parseInt(currentQuantityText);
+            int newQuantity = currentQuantity + 1;
+
+            gingerQuantity.setText(String.valueOf(newQuantity));
+
+            double newPrice = gingerUnitPrice * newQuantity;
+            gingerPrice.setText(String.format("$%.2f", newPrice));
+        });
+
+        // Botón de disminuir cantidad en jengibre
+        Button gingerMinusButton = findViewById(R.id.gingerMinusButton);
+        gingerMinusButton.setOnClickListener(v -> {
+            String currentQuantityText = gingerQuantity.getText().toString();
+            int currentQuantity = Integer.parseInt(currentQuantityText);
+
+            if (currentQuantity > 1) {
+                int newQuantity = currentQuantity - 1;
+
+                gingerQuantity.setText(String.valueOf(newQuantity));
+
+                double newPrice = gingerUnitPrice * newQuantity;
+                gingerPrice.setText(String.format("$%.2f", newPrice));
+            }
+        });
+
+        // Botón de eliminar jengibre del carrito
+        Button gingerRemoveButton = findViewById(R.id.gingerRemoveButton);
+        View gingerItem = findViewById(R.id.gingerItem);
+        View gingerDivider = findViewById(R.id.gingerDivider);
+
+        gingerRemoveButton.setOnClickListener(v -> {
+            gingerItem.setVisibility(View.GONE);
+            gingerDivider.setVisibility(View.GONE);
+        });
+
         // Botón de ir al pago y contenedor del carrito
         Button checkoutButton = findViewById(R.id.checkoutButton);
         LinearLayout cartItemsContainer = findViewById(R.id.cartItemsContainer);
@@ -187,6 +227,10 @@ public class MainActivity extends AppCompatActivity {
 
             if (bananasItem.getVisibility() == View.GONE) {
                 bananasTotal = 0;
+            }
+
+            if (gingerItem.getVisibility() == View.GONE) {
+                gingerTotal = 0;
             }
 
             double cartTotal = redPepperTotal + eggsTotal + bananasTotal + gingerTotal;
