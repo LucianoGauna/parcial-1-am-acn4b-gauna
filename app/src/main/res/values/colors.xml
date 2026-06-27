@@ -38,4 +38,8 @@
 
     <color name="category_beverages_bg">#40B7DFF5</color>
     <color name="category_beverages_stroke">#B7DFF5</color>
+
+    <!-- Detalle de producto -->
+    <color name="product_image_bg">#F2F3F2</color>
+    <color name="rating_orange">#F3603F</color>
 </resources>

@@ -80,13 +80,32 @@
     <string name="product_pepsi">Pepsi</string>
 
     <string name="unit_can_355">355 ml</string>
-    <string name="unit_bottle_325">325 ml</string>
+    <string name="unit_can_325">325 ml</string>
     <string name="unit_bottle_2l">2 L</string>
 
-    <string name="price_diet_coke">$1.99</string>
-    <string name="price_sprite">$1.50</string>
-    <string name="price_apple_grape_juice">$15.99</string>
-    <string name="price_orange_juice">$15.99</string>
-    <string name="price_coca_cola">$4.99</string>
-    <string name="price_pepsi">$4.99</string>
+    <string name="price_diet_coke">$2500.00</string>
+    <string name="price_sprite">$2200.00</string>
+    <string name="price_apple_grape_juice">$1800.99</string>
+    <string name="price_orange_juice">$1800.99</string>
+    <string name="price_coca_cola">$2500.00</string>
+    <string name="price_pepsi">$2500.00</string>
+
+    <!-- Detalle de producto -->
+    <string name="share_content_description">Compartir producto</string>
+    <string name="favorite_content_description">Marcar como favorito</string>
+    <string name="product_detail_section">Detalles del producto</string>
+    <string name="nutrition_section">Información nutricional</string>
+    <string name="review_section">Opiniones</string>
+    <string name="nutrition_100g">100g</string>
+    <string name="add_to_cart_button">Agregar al carrito</string>
+    <string name="product_added_to_cart">Producto agregado al carrito</string>
+    <string name="product_favorite_added">Producto agregado a favoritos</string>
+    <string name="product_favorite_removed">Producto eliminado de favoritos</string>
+
+    <string name="description_diet_coke">Gaseosa cola light en lata, ideal para consumir fría.</string>
+    <string name="description_sprite">Bebida gaseosa sabor lima limón, refrescante y liviana.</string>
+    <string name="description_apple_grape_juice">Jugo de manzana y uva en botella familiar de 2 litros.</string>
+    <string name="description_orange_juice">Jugo de naranja en botella familiar de 2 litros.</string>
+    <string name="description_coca_cola">Gaseosa cola clásica para acompañar comidas o reuniones.</string>
+    <string name="description_pepsi">Gaseosa cola Pepsi, ideal para consumir fría.</string>
 </resources>

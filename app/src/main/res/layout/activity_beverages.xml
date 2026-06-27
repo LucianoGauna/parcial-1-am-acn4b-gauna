@@ -175,7 +175,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/unit_bottle_325"
+                        android:text="@string/unit_can_325"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp" />
 
@@ -403,7 +403,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/unit_bottle_2l"
+                        android:text="@string/unit_can_355"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp" />
 
@@ -473,7 +473,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/unit_bottle_2l"
+                        android:text="@string/unit_can_355"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp" />
 
