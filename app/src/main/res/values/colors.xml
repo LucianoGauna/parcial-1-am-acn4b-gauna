@@ -15,4 +15,8 @@
     <!-- Base -->
     <color name="white">#FFFFFF</color>
     <color name="background">#FFFFFF</color>
+
+    <!-- Login -->
+    <color name="login_gradient_start">#FFF7F3</color>
+    <color name="login_gradient_end">#F4FFF8</color>
 </resources>

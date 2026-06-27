@@ -19,7 +19,7 @@
     <string name="unit_ginger">250 g</string>
 
     <!-- Precios -->
-    <string name="price_red_pepper">$774.99</string>
+    <string name="price_red_pepper">$749.99</string>
     <string name="price_eggs">$850.99</string>
     <string name="price_bananas">$690.00</string>
     <string name="price_ginger">$300.99</string>
@@ -39,4 +39,20 @@
 
     <!-- Formatos -->
     <string name="price_format">$%1$.2f</string>
+
+    <!-- Login -->
+    <string name="login_title">Iniciar sesión</string>
+    <string name="login_subtitle">Ingresá tu correo y contraseña</string>
+    <string name="login_email_label">Correo</string>
+    <string name="login_email_hint">correo@ejemplo.com</string>
+    <string name="login_password_label">Contraseña</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_show_password">Ver</string>
+    <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login_button">Ingresar</string>
+    <string name="login_no_account">¿No tenés una cuenta? </string>
+    <string name="login_signup">Registrate</string>
+
+    <!-- Explorar -->
+    <string name="explore_title">Encontrar productos</string>
 </resources>
