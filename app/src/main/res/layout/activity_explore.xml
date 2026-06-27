@@ -10,13 +10,453 @@
         android:id="@+id/exploreTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/explore_title"
         android:textColor="@color/text_primary"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/searchContainer"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_search_input"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exploreTitle">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/explore_search_hint"
+            android:src="@drawable/ic_search"
+            app:tint="@color/text_primary" />
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/explore_search_hint"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/categoriesScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchContainer">
+
+        <LinearLayout
+            android:id="@+id/categoriesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:id="@+id/categoriesRowOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/fruitsCategoryCard"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_category_fruits"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/category_fruits"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_category_fruits" />
+
+                    <TextView
+                        android:id="@+id/fruitsCategoryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/category_fruits"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/oilCategoryCard"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_category_oil"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/category_oil"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_category_oil" />
+
+                    <TextView
+                        android:id="@+id/oilCategoryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/category_oil"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/categoriesRowTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/meatCategoryCard"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_category_meat"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/category_meat"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_category_meat" />
+
+                    <TextView
+                        android:id="@+id/meatCategoryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/category_meat"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bakeryCategoryCard"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_category_bakery"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/category_bakery"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_category_bakery" />
+
+                    <TextView
+                        android:id="@+id/bakeryCategoryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/category_bakery"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/categoriesRowThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/dairyCategoryCard"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_category_dairy"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/category_dairy"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_category_dairy" />
+
+                    <TextView
+                        android:id="@+id/dairyCategoryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/category_dairy"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/beveragesCategoryCard"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_category_beverages"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/category_beverages"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_category_beverages" />
+
+                    <TextView
+                        android:id="@+id/beveragesCategoryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/category_beverages"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/noCategoriesMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="@string/no_categories_found"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:background="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/navShop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/nav_shop"
+                android:src="@drawable/ic_store"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/nav_shop"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navExplore"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/nav_explore"
+                android:src="@drawable/ic_search"
+                app:tint="@color/primary_green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/nav_explore"
+                android:textColor="@color/primary_green"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navCart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/nav_cart"
+                android:src="@drawable/ic_cart"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/nav_cart"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navFavorites"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/nav_favorites"
+                android:src="@drawable/ic_favorite"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/nav_favorites"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navAccount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/nav_account"
+                android:src="@drawable/ic_user"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/nav_account"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

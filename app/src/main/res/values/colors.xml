@@ -19,4 +19,23 @@
     <!-- Login -->
     <color name="login_gradient_start">#FFF7F3</color>
     <color name="login_gradient_end">#F4FFF8</color>
+
+    <!-- Categorías - Explorar -->
+    <color name="category_fruits_bg">#1A53B175</color>
+    <color name="category_fruits_stroke">#B353B175</color>
+
+    <color name="category_oil_bg">#1AF8A44C</color>
+    <color name="category_oil_stroke">#B3F8A44C</color>
+
+    <color name="category_meat_bg">#40F7A593</color>
+    <color name="category_meat_stroke">#F7A593</color>
+
+    <color name="category_bakery_bg">#40D3B0E0</color>
+    <color name="category_bakery_stroke">#D3B0E0</color>
+
+    <color name="category_dairy_bg">#40FDE598</color>
+    <color name="category_dairy_stroke">#FDE598</color>
+
+    <color name="category_beverages_bg">#40B7DFF5</color>
+    <color name="category_beverages_stroke">#B7DFF5</color>
 </resources>

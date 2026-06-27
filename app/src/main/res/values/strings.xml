@@ -55,4 +55,13 @@
 
     <!-- Explorar -->
     <string name="explore_title">Encontrar productos</string>
+    <string name="explore_search_hint">Buscar</string>
+    <string name="category_fruits">Frutas y verduras</string>
+    <string name="category_oil">Almacén</string>
+    <string name="category_meat">Carnes y pescados</string>
+    <string name="category_bakery">Panadería y snacks</string>
+    <string name="category_dairy">Lácteos y huevos</string>
+    <string name="category_beverages">Bebidas</string>
+    <string name="category_coming_soon">Categoría próximamente</string>
+    <string name="no_categories_found">No se encontraron categorías</string>
 </resources>
