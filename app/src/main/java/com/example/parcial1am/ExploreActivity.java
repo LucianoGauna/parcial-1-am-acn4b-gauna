@@ -61,9 +61,10 @@ public class ExploreActivity extends AppCompatActivity {
         bakeryCategoryCard.setOnClickListener(v -> showComingSoon());
         dairyCategoryCard.setOnClickListener(v -> showComingSoon());
 
-        beveragesCategoryCard.setOnClickListener(v ->
-                Toast.makeText(this, "Abrir bebidas", Toast.LENGTH_SHORT).show()
-        );
+        beveragesCategoryCard.setOnClickListener(v -> {
+            Intent intent = new Intent(ExploreActivity.this, BeveragesActivity.class);
+            startActivity(intent);
+        });
 
         navCart.setOnClickListener(v -> {
             Intent intent = new Intent(ExploreActivity.this, MainActivity.class);

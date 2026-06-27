@@ -64,4 +64,29 @@
     <string name="category_beverages">Bebidas</string>
     <string name="category_coming_soon">Categoría próximamente</string>
     <string name="no_categories_found">No se encontraron categorías</string>
+
+    <!-- Bebidas -->
+    <string name="beverages_title">Bebidas</string>
+    <string name="filter_content_description">Filtrar productos</string>
+    <string name="back_content_description">Volver</string>
+    <string name="add_product">Agregar producto</string>
+    <string name="product_added">Producto agregado</string>
+
+    <string name="product_diet_coke">Coca Cola Light</string>
+    <string name="product_sprite">Sprite</string>
+    <string name="product_apple_grape_juice">Jugo de manzana y uva</string>
+    <string name="product_orange_juice">Jugo de naranja</string>
+    <string name="product_coca_cola">Coca Cola</string>
+    <string name="product_pepsi">Pepsi</string>
+
+    <string name="unit_can_355">355 ml</string>
+    <string name="unit_bottle_325">325 ml</string>
+    <string name="unit_bottle_2l">2 L</string>
+
+    <string name="price_diet_coke">$1.99</string>
+    <string name="price_sprite">$1.50</string>
+    <string name="price_apple_grape_juice">$15.99</string>
+    <string name="price_orange_juice">$15.99</string>
+    <string name="price_coca_cola">$4.99</string>
+    <string name="price_pepsi">$4.99</string>
 </resources>
