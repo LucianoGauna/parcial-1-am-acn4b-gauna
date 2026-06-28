@@ -79,9 +79,10 @@ public class ExploreActivity extends AppCompatActivity {
                 Toast.makeText(this, "Favoritos próximamente", Toast.LENGTH_SHORT).show()
         );
 
-        navAccount.setOnClickListener(v ->
-                Toast.makeText(this, "Cuenta próximamente", Toast.LENGTH_SHORT).show()
-        );
+        navAccount.setOnClickListener(v -> {
+            Intent intent = new Intent(ExploreActivity.this, AccountActivity.class);
+            startActivity(intent);
+        });
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override

@@ -108,4 +108,11 @@
     <string name="description_orange_juice">Jugo de naranja en botella familiar de 2 litros.</string>
     <string name="description_coca_cola">Gaseosa cola clásica para acompañar comidas o reuniones.</string>
     <string name="description_pepsi">Gaseosa cola Pepsi, ideal para consumir fría.</string>
+
+    <!-- Cuenta -->
+    <string name="account_title">Cuenta</string>
+    <string name="account_logged_in">Sesión iniciada</string>
+    <string name="account_no_user">No hay usuario logueado</string>
+    <string name="logout_button">Cerrar sesión</string>
+    <string name="logout_success">Sesión cerrada</string>
 </resources>
