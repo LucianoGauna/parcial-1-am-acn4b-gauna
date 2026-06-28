@@ -15,15 +15,21 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+
 public class LoginActivity extends AppCompatActivity {
 
     private boolean isPasswordVisible = false;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginRoot), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -55,22 +61,63 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Recuperación de contraseña próximamente", Toast.LENGTH_SHORT).show()
         );
 
-        signUpText.setOnClickListener(v ->
-                Toast.makeText(this, "Registro próximamente", Toast.LENGTH_SHORT).show()
-        );
+        signUpText.setOnClickListener(v -> {
+            String email = emailEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
+
+            if (!validateCredentials(email, password)) {
+                return;
+            }
+
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(this, "Cuenta creada correctamente", Toast.LENGTH_SHORT).show();
+                            goToExplore();
+                        } else if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                            Toast.makeText(this, "El correo ya está registrado. Iniciá sesión.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "No se pudo crear la cuenta", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        });
 
         loginButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Ingresá tu correo y contraseña", Toast.LENGTH_SHORT).show();
+            if (!validateCredentials(email, password)) {
                 return;
             }
 
-            Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-            startActivity(intent);
-            finish();
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            goToExplore();
+                        } else {
+                            Toast.makeText(this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
+    }
+
+    private boolean validateCredentials(String email, String password) {
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Ingresá tu correo y contraseña", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (password.length() < 6) {
+            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
+    private void goToExplore() {
+        Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
