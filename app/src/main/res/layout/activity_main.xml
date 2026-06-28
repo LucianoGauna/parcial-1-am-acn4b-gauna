@@ -668,6 +668,7 @@
 
         <!-- Tienda -->
         <LinearLayout
+            android:id="@+id/navShop"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -693,6 +694,7 @@
 
         <!-- Explorar -->
         <LinearLayout
+            android:id="@+id/navExplore"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -718,6 +720,7 @@
 
         <!-- Carrito seleccionado -->
         <LinearLayout
+            android:id="@+id/navCart"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -744,6 +747,7 @@
 
         <!-- Favoritos -->
         <LinearLayout
+            android:id="@+id/navFavorites"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -769,6 +773,7 @@
 
         <!-- Cuenta -->
         <LinearLayout
+            android:id="@+id/navAccount"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

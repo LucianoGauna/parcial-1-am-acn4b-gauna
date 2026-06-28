@@ -1,10 +1,12 @@
 package com.example.parcial1am;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout cartItemsContainer = findViewById(R.id.cartItemsContainer);
         TextView emptyCartMessage = findViewById(R.id.emptyCartMessage);
 
+        View navShop = findViewById(R.id.navShop);
+        View navExplore = findViewById(R.id.navExplore);
+        View navFavorites = findViewById(R.id.navFavorites);
+        View navAccount = findViewById(R.id.navAccount);
+
         Button redPepperRemoveButton = findViewById(R.id.redPepperRemoveButton);
         View redPepperItem = findViewById(R.id.redPepperItem);
         View redPepperDivider = findViewById(R.id.redPepperDivider);
@@ -61,6 +68,24 @@ public class MainActivity extends AppCompatActivity {
         View gingerDivider = findViewById(R.id.gingerDivider);
 
         TextView checkoutSummary = new TextView(this);
+
+        navExplore.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ExploreActivity.class);
+            startActivity(intent);
+        });
+
+        navAccount.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+            startActivity(intent);
+        });
+
+        navShop.setOnClickListener(v ->
+                Toast.makeText(this, "Tienda próximamente", Toast.LENGTH_SHORT).show()
+        );
+
+        navFavorites.setOnClickListener(v ->
+                Toast.makeText(this, "Favoritos próximamente", Toast.LENGTH_SHORT).show()
+        );
 
         // Botón de aumentar cantidad en pimiento
         Button redPepperPlusButton = findViewById(R.id.redPepperPlusButton);
